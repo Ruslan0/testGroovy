@@ -76,11 +76,11 @@ class TestTask1 {
 	}
 	
 	def task12(Integer[] intArray) {
-		def Integer[] intArray2 = [220, 300, 110,-122, 110,2,3,332,2,6, -1]
-		println("unique size = "+intArray.toUnique().size());
-		println("max = "+intArray.toUnique().max() + "; min = "+intArray.toUnique().min());
-		println(intArray.collect ({return it>0?it*2:it*3}))
-		println(intArray.collect().intersect(intArray2.collect()))
+		def Integer[] intArray2 = [220, 300, 110,-122, 110,2,3,332,2,6, -1]                     
+		println("unique size = "+intArray.toUnique().size());									// à
+		println("max = "+intArray.toUnique().max() + "; min = "+intArray.toUnique().min());		// á
+		println(intArray.collect ({return it>0?it*2:it*3}))										// â
+		println(intArray.collect().intersect(intArray2.collect()))								// ã
 	}	
 	
 	static void main(args) {
