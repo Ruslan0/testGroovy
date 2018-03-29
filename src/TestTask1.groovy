@@ -74,11 +74,23 @@ class TestTask1 {
 	  println(doOutputReverse(str))			// ä
 	  println(isContainEmail(str))			// å
 	}
-
+	
+	def task12(Integer[] intArray) {
+		def Integer[] intArray2 = [220, 300, 110,-122, 110,2,3,332,2,6, -1]
+		println("unique size = "+intArray.toUnique().size());
+		println("max = "+intArray.toUnique().max() + "; min = "+intArray.toUnique().min());
+		println(intArray.collect ({return it>0?it*2:it*3}))
+		println(intArray.collect().intersect(intArray2.collect()))
+	}	
+	
 	static void main(args) {
 	  def foo = new TestTask1()
-	  if ( args.size()==0 ) return
-	  foo.task11(args[0])
+	  def str="I want to walk my DOG, Cat, and asrtatrsa and qwertrewq Maybe even my tortoise@mail.ru ."
+	  def Integer[] intArray = [200, 300, 100,-122, 100,2,1,331,2,5, -1]
+	  println("*** Task 1.1 ***")			
+	  foo.task11(str)
+	  println("*** Task 1.2 ***")			
+	  foo.task12(intArray)
 	}
   
 }
