@@ -3,14 +3,9 @@ import java.util.regex.Pattern
 
 class TestTask1 {
 	
-	def Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile( /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$/, Pattern.DOTALL)
+	def Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile( /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/, Pattern.DOTALL)
 	
 	
- 	public boolean validate(String emailStr) {
-			Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
-			return matcher.find();
-	}
-
 	def doOutputOnlyLwerCase(String s) {
 		def arr =	s.split()
 		def res= arr.findAll{
@@ -54,6 +49,11 @@ class TestTask1 {
 		return flag
 	}
 	
+	public boolean isEmail(String emailStr) {
+		Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
+		return matcher.find();
+	}
+
 	def doOutputReverse(String s) {
 		def arr =	s.split()
 		def res= arr.findAll{
@@ -61,19 +61,24 @@ class TestTask1 {
 		}
 	}
 
+	def isContainEmail(String s) {
+		return s.split().any{isEmail(it)}
+	}
+
+	def task11(String str) {
+	  doOutputOnlyLwerCase(str)             // à
+	  if (str.length()>16)
+	  println(str.substring(11, 16));		// á
+	  println(doOutputEnglish(str));		// â
+	  println(replaceFirstSymboltoUp(str))  // ã 
+	  println(doOutputReverse(str))			// ä
+	  println(isContainEmail(str))			// å
+	}
+
 	static void main(args) {
 	  def foo = new TestTask1()
 	  if ( args.size()==0 ) return
-	  
-	  println(foo.doOutputReverse("1234321"))
-	  
-	  def str = args[0]
-	  foo.doOutputOnlyLwerCase(str)
-	  if (str.length()>16)
-	  println(str.substring(11, 16));
-	  foo.doOutputEnglish(str);
-	  println(foo.replaceFirstSymboltoUp(str))
-	  println(foo.doOutputReverse(str))
+	  foo.task11(args[0])
 	}
   
 }
