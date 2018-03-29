@@ -26,7 +26,7 @@ class TestTask2 {
 
 	static main(args) {
 		if (args.size()==0) {
-			println ("the directory isn't defined")
+			println ("the directory is not found")
 			return
 		}
 		def foo = new TestTask2()
