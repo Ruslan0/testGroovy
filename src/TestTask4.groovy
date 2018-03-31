@@ -1,3 +1,4 @@
+import Person.Address
 
 class TestTask4 {
 	
@@ -36,10 +37,29 @@ class TestTask4 {
 		
 	}
 
+	def task43() {
+		Person p0 = new Person(firstName: "Test") 
+		Person p1 = new Person(firstName: "Михаил", surName: "Тропин", age: 32, 
+			address : new Address(city: "Москва", street: "Смоленкая", index: 210239))
+		Person p2 = new Person(firstName: "Анна", surName: "Столина", age: 29, 
+			address : new Address(city: "Витебск", street: "Кирова", index: 220309))
+		Person p3 = new Person(firstName: "Иван", surName: "Сидоров", age: 39, 
+			address : new Address(city: "Минск", street: "Независмости", index: 220009))
+		List<Person> arr=p0+p1+p2+p3
+		println arr
+		println arr-p2
+		println  arr.findAll{it.age<30}
+		arr.each{
+			println it.address
+		}
+	}
+	
+	
 	static main(args) {
 		def foo = new TestTask4()
 		foo.task41()
 		foo.task42()
+		foo.task43()
 	}
 
 }
