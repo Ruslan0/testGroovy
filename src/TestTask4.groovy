@@ -1,6 +1,7 @@
 
 class TestTask4 {
 	
+
 	def task41() {
 	  println("*** Task 4.1 ***")			
 		Integer.metaClass.toComment= { str -> str + delegate.toString() }
@@ -24,11 +25,15 @@ class TestTask4 {
 
 	def task42() {
 		println("*** Task 4.2 ***")			
-		def multiply = { x, y -> return x * y } // замыкание
-		def p = multiply.call(3, 4)             // прямоый вызов
-		def q = multiply(4, 5)                  // косвенный вызов
-		println "p: ${p}"                       // p = 12
-		println "q: ${q}"                       // q = 20
+		def test1 = {Integer x, String s, Closure c -> return s + x + c } // замыкание
+		def test2 = {String...args-> return args.join('') } 
+		def p = test1.call(5, "Test1 ",  {2})                 // прямоый вызов
+		def q = test1(4, "Test2 ", {" Test"})                  // косвенный вызов
+		def z = test2("Test", "2","ok ")                 
+		println "p: ${p}"                       
+		println "q: ${q}"                       
+		println "z: ${z}"
+		
 	}
 
 	static main(args) {
