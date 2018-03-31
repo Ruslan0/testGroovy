@@ -2,6 +2,7 @@
 class TestTask4 {
 	
 	def task41() {
+	  println("*** Task 4.1 ***")			
 		Integer.metaClass.toComment= { str -> str + delegate.toString() }
 		Integer.metaClass.static.ValueOfByte= {Byte ch -> 
 			String str = ch.toString()
@@ -20,11 +21,20 @@ class TestTask4 {
 		arrList.add("C")
 		println arrList.info("Inteher = ")
 	}
-		
+
+	def task42() {
+		println("*** Task 4.2 ***")			
+		def multiply = { x, y -> return x * y } // замыкание
+		def p = multiply.call(3, 4)             // прямоый вызов
+		def q = multiply(4, 5)                  // косвенный вызов
+		println "p: ${p}"                       // p = 12
+		println "q: ${q}"                       // q = 20
+	}
 
 	static main(args) {
 		def foo = new TestTask4()
 		foo.task41()
+		foo.task42()
 	}
 
 }
