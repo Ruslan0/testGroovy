@@ -7,7 +7,7 @@ import Person.Address
 class TestTask7 {
 
 	static main(args) {
-			println (4**5) // 7.1
+			println (4**5) 
 			def printValue =  {(it!=null)?it:"no value"}
 			println printValue("Test")
 			println printValue()
