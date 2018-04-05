@@ -26,13 +26,13 @@ class TestTask3 {
         println groovyFiles
         groovyFiles.each {
             File f = new File(it);
-            String newFileName = getBaseFileName(f.getName()).reverse()
-            Integer suf = 0
-            newFileName.each {suf += Integer.valueOf(it)}
-            if (f.renameTo(getDir(f.getPath())+"/"+newFileName+"_"+suf+".dat"))
-                println f.getName() + " has been renamed to " +  newFileName+"_"+suf+".dat"
+            println f.parentFile.toURI().relativize(f.toURI()).getPath()
+            def baseFileName = getBaseFileName(f.getName()).reverse()
+            def newFileName = baseFileName.reverse()+'_'+baseFileName.collect { return it.toInteger() }.sum()+".dat"
+            if (f.renameTo(getDir(f.getPath())+"/"+newFileName))
+                println f.getName() + " has been renamed to " +  newFileName
             else
-                println f.getName() + " hasn't been renamed to " +  +newFileName+"_"+suf+".dat"
+                println f.getName() + " hasn't been renamed to " +  +newFileName
 		}
 
 	}
