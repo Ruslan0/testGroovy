@@ -1,9 +1,8 @@
-import java.nio.file.Path
 import groovy.xml.MarkupBuilder
 
 class TestTask2 {
 	
-	def findFilesGroovy(dir) {
+	static def findFilesGroovy(dir) {
 		def mask = /.groovy\.*/
 		
 		def groovyFiles = new FileNameByRegexFinder().getFileNames(dir, mask)
@@ -11,8 +10,8 @@ class TestTask2 {
 		def xml = new MarkupBuilder(writer)
 
 		groovyFiles.each{
-			File f = new File(it);
-			println (f.name + " | "+ f.size()+" | "+f.absolutePath)
+			File f = new File( it )
+			println f.name + " | "+ f.size()+" | "+f.absolutePath
 			
 			xml.records() {
 				file(name: f.name) {
@@ -25,12 +24,11 @@ class TestTask2 {
 	}
 
 	static main(args) {
-		if (args.size()==0) {
-			println ("the directory is not found")
+		if (args.size() == 0) {
+			println "the directory is not found"
 			return
 		}
-		def foo = new TestTask2()
-		foo.findFilesGroovy(args[0])
+		findFilesGroovy(args[0])
 	}
 
 }
