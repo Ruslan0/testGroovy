@@ -6,22 +6,23 @@ import Person.Address
  */
 class TestTask7 {
 
-	static main(args) {
-			println (4**5) 
-			def printValue =  {(it!=null)?it:"no value"}
-			println printValue("Test")
-			println printValue()
-			Person p0 = new Person(firstName: "Test") 
-			Person p1 = new Person(firstName: "Михаил", surName: "Тропин", age: 32, 
-				address : new Address(city: "Москва", street: "Смоленкая", index: 210239))
-			Person p2 = new Person(firstName: "Анна", surName: "Столина", age: 29, 
-				address : new Address(city: "Витебск", street: "Кирова", index: 220309))
-			Person p3 = new Person(firstName: "Иван", surName: "Сидоров", age: 39, 
-				address : new Address(city: "Минск", street: "Независмости", index: 220009))
-			List<Person> arr=p0+p1+p2+p3
-			arr.findAll{it.address!=null}.each{
-				println it.address.index
-			}
-	}
+    static main(args) {
+        println(4**5)
+        def printValue = { it ?: "no value" }
+        println printValue("Test")
+        println printValue()
+        Person p0 = new Person(firstName: "РќРёРєРѕР»Р°Р№", surName: "РЎРµРјРµРЅРѕРІ", age: 42)
+        Person p1 = new Person(firstName: "РРІР°РЅ", surName: "РџРµС‚СЂРѕРІ", age: 32,
+            address: new Address(city: "РњРёРЅСЃРє", street: "Р–РµР»РµР·РЅРѕРґРѕСЂРѕР¶РЅР°СЏ", index: 210239))
+        Person p2 = new Person(firstName: "РўР°С‚СЊСЏРЅР°", surName: "РЎСѓС…РѕСЂСѓРєРѕРІР°", age: 29,
+            address: new Address(city: "РњРѕСЃРєРІР°", street: "РљРёСЂРѕРІР°", index: 220309))
+        Person p3 = new Person(firstName: "РЎРµСЂРіРµР№", surName: "РљРѕС‚РѕРІ", age: 39,
+            address: new Address(city: "Р“СЂРѕРґРЅРѕ", street: "Р§РєР°Р»РѕРІР°", index: 220009))
+        Person p4 = new Person(firstName: "РћР»СЊРіР°", surName: "РњРёС‚РѕРІР°", age: 38)
+        List<Person> arr = [] + p0 + p1 + p2 + p3
+        arr.findAll { it.address }.each {
+            println it.address.index
+        }
+    }
 
 }

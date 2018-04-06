@@ -2,7 +2,7 @@ import Person.Address
 
 class TestTask4 {
 
-    def task41() {
+    static def task41() {
         println("*** Task 4.1 ***")
         Integer.metaClass.toComment = { str -> str + delegate.toString() }
         Integer.metaClass.static.ValueOfByte = { Byte ch ->
@@ -23,7 +23,7 @@ class TestTask4 {
         println arrList.info("Inteher = ")
     }
 
-    def task42() {
+    static def task42() {
         println("*** Task 4.2 ***")
         def test1 = { Integer x, String s, Closure c -> return s + x + c }
         def test2 = { String... args -> return args.join('') }
@@ -36,7 +36,7 @@ class TestTask4 {
 
     }
 
-    def task43() {
+    static def task43() {
         Person p1 = new Person(firstName: "Иван", surName: "Петров", age: 32,
             address: new Address(city: "Минск", street: "Железнодорожная", index: 210239))
         Person p2 = new Person(firstName: "Татьяна", surName: "Сухорукова", age: 29,
@@ -54,10 +54,9 @@ class TestTask4 {
 
 
     static main(args) {
-        def foo = new TestTask4()
-        foo.task41()
-        foo.task42()
-        foo.task43()
+        task41()
+        task42()
+        task43()
     }
 
 }
