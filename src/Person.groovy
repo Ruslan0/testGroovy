@@ -17,7 +17,7 @@ class Person {
 
         @Override
         public String toString() {
-            return "Address [city=" + city + ", street=" + street + ", index=" + index + "]";
+            return "Address [city=" + city + ", street=" + street + ", index=" + index + "]"
         }
     }
     Address address

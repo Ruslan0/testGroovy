@@ -17,7 +17,7 @@ class TestTask1 {
     }
 
     static def getEnglishLetters(String s) {
-        return s.toCharArray().findAll { ch -> ((ch >= 'a') && (ch <= 'z')) }
+        return s.toCharArray().findAll { (it >= 'a') && (it <= 'z') }
     }
 
     static def getreplaceFirstSymboltoUp(String s) {
@@ -39,7 +39,7 @@ class TestTask1 {
         println getEnglishLetters(str)        // в
         println getreplaceFirstSymboltoUp(str)  // г
         println getReverse(str)             // д
-        println(isContainEmail(str))        // е
+        println isContainEmail(str)        // е
     }
 
     static def task12(Integer[] intArray) {
@@ -53,9 +53,9 @@ class TestTask1 {
     static void main(args) {
         Integer[] intArray = [200, 300, 100, -122, 100, 2, 1, 331, 2, 5, -1]
         println "*** Task 1.1 ***"
-        task11(str)
+        task11 str
         println "*** Task 1.2 ***"
-        task12(intArray)
+        task12 intArray
     }
 
 }
